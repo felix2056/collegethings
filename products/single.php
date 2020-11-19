@@ -1,891 +1,835 @@
 <?php include_once('../includes/header.php'); ?>
 
-<body id="bikini" class="template-collection">
-    <style type="text/css">
-    #wh-widget-send-button {
-        margin: 0 !important;
-        padding: 0 !important;
-        position: fixed !important;
-        z-index: 16000160 !important;
-        bottom: 0 !important;
-        text-align: center !important;
-        height: 90px;
-        width: 60px;
-        visibility: visible;
-        transition: none !important;
-    }
+<body class="template-index" data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
 
-    #wh-widget-send-button.wh-widget-right {
-        right: 0;
-    }
+    <a class="in-page-link visually-hidden skip-link" href="#MainContent">
+        Skip to content
+    </a>
 
-    #wh-widget-send-button.wh-widget-left {
-        left: 10px;
-    }
+    <?php include_once('../includes/nav.php'); ?>
 
-    #wh-widget-send-button iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
+    <?php require_once('../products/db/products.php'); ?>
 
-    div.clear {
-        clear: both;
-    }
-    </style>
+    <?php if ( isset($_GET['product'])) : ?>
+    
+    <?php
+        $id = (int) $_GET['product'];
+        $single = json_decode(find($id), true);
+        // echo $_GET['product'];
+    ?>
 
-    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-        <div class="gf-menu-device-wrapper">
-            <div class="close-menu">x</div>
-            <div class="gf-menu-device-container"></div>
-        </div>
-    </nav>
+    <div class="page-container page-element is-moved-by-drawer">
+        <main class="main-content" id="MainContent" role="main">
+            <div id="shopify-section-product-template" class="shopify-section">
+                <div class="page-width" itemscope="" itemtype="http://schema.org/Product"
+                    id="ProductSection-product-template" data-section-id="product-template" data-section-type="product"
+                    data-enable-history-state="true" data-ajax="true" data-stock="false">
 
-    <div id="PageContainer" class="drawer-page-content"></div>
-    <div class="quick-view"></div>
+                    <meta itemprop="name" content="<?php echo $single['title']; ?>">
+                    <meta itemprop="url"
+                        content="/products/single.php?product=<?php echo $product['id'] ?>">
+                    <meta itemprop="image" content="<?php echo $single['featured_image']; ?>">
 
-    <div class="wrapper-container">
-        <?php include_once('../includes/nav.php'); ?>
 
-        <?php require_once('../products/db/products.php'); ?>
+                    <div class="grid product-single">
+                        <div class="grid__item medium-up--three-fifths">
+                            <div class="photos">
+                                <div class="photos__item photos__item--main">
+                                    <div class="product-single__photo" id="ProductPhoto">
 
-        <?php if ( isset($_GET['product'])) : ?>
-        <?php
-            $id = (int) $_GET['product'];
-            $single = json_decode(find($id), true);
-            // echo $_GET['product'];
-        ?>
+                                        <a href="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428548_1024x1024.jpg?v=1602321417"
+                                            class="js-modal-open-product-modal" id="ProductPhotoLink-product-template"
+                                            aria-expanded="false">
+                                            <img src="<?php echo $single['featured_image']; ?>"
+                                                alt="<?php echo $single['title']; ?>"
+                                                id="ProductPhotoImg-product-template">
+                                        </a>
+                                    </div>
+                                </div>
 
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-            <h1><?php echo $single['title']; ?></h1>
-            <a href="/" title="Back to the frontpage">Home</a>
-            <span aria-hidden="true" class="breadcrumb__sep">/</span>
-            <span><?php echo $single['title']; ?></span>
-        </nav>
+                                <!-- <div class="photos__item photos__item--thumbs">
+                                    <div class="product-single__thumbnails slick-initialized slick-slider slick-vertical"
+                                        id="ProductThumbs-product-template"><button type="button"
+                                            class="slick-prev slick-arrow" aria-disabled="false"
+                                            style="display: block;"><span class="medium-up--hide"><svg
+                                                    aria-hidden="true" focusable="false" role="presentation"
+                                                    class="icon icon-arrow-left" viewBox="0 0 32 32">
+                                                    <path fill="#444"
+                                                        d="M24.333 28.205l-1.797 1.684L7.666 16l14.87-13.889 1.797 1.675L11.269 16z">
+                                                    </path>
+                                                </svg></span><span class="small--hide"><svg aria-hidden="true"
+                                                    focusable="false" role="presentation" class="icon icon-arrow-up"
+                                                    viewBox="0 0 32 32">
+                                                    <path fill="#444"
+                                                        d="M26.984 23.5l1.516-1.617L16 8.5 3.5 21.883 5.008 23.5 16 11.742z">
+                                                    </path>
+                                                </svg></span></button>
 
-        <main class="main-content">
-            <div class="dt-sc-hr-invisible-large"></div>
-            <div class="wrapper">
-                <div class="grid__item">
-                    <div class="">
-                        <div itemscope="" itemtype="http://schema.org/Product" class="single-product-layout-type-3">
-                            <meta itemprop="url"
-                                content="https://pr-bikini.myshopify.com/products/u165-bw1595xl-bw1595-deep-desires-lace-panty">
-                            <meta itemprop="image" content="<?php echo $single['featured_image']; ?>">
-                            <div class="product-single">
-
-                                <div class="grid__item">
-                                    <div
-                                        class="grid__item wide--one-third post-large--one-third large--one-half product-img-box">
-                                        <div class="product-photo-container">
-                                            <a href="<?php echo $single['featured_image']; ?>">
-                                            <img id="product-featured-image"
-                                                        src="<?php echo $single['featured_image']; ?>"
-                                                        alt="<?php echo $single['title']; ?>"
-                                                        data-zoom-image="<?php echo $single['featured_image']; ?>"
-                                                        style="position: absolute;">
-                                            </a>
-                                        </div>
-
-                                        <div class="more-view-wrapper  more-view-wrapper-owlslider ">
-                                            <?php if ( count($single['images']) > 0) : ?>
-                                            <ul id="ProductThumbs" class="product-photo-thumbs owl-carousel">
-                                                <?php foreach ($single['images'] as $image) : ?>
-                                                <li class="grid-item">
-                                                    <a href="javascript:void(0)" data-image="<?php echo $image; ?>"
-                                                        data-zoom-image="<?php echo $image; ?>">
-                                                        <img src="<?php echo $image; ?>"
-                                                            alt="<?php echo $single['title']; ?>">
+                                        <div aria-live="polite" class="slick-list draggable" style="height: 402px;">
+                                            <div class="slick-track"
+                                                style="opacity: 1; height: 1340px; transform: translate3d(0px, -804px, 0px);">
+                                                <div class="product-single__thumbnail-item  slick-slide"
+                                                    data-slick-index="0" aria-hidden="true" style="width: 101px;">
+                                                    <a href="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428538_480x480.jpg?v=1602321412"
+                                                        data-zoom="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428538_1024x1024.jpg?v=1602321412"
+                                                        class="product-single__thumbnail product-single__thumbnail-product-template">
+                                                        <img src="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428538_160x160.jpg?v=1602321412"
+                                                            alt="LED Night Light With Wireless USB Rechargeable Motion Sensor">
                                                     </a>
-                                                </li>
-                                                <?php endforeach; ?>
-                                            </ul>
-                                            <?php endif; ?>
-                                            <div class="single-page-owl-carousel"></div>
+                                                </div>
+                                                <div class="product-single__thumbnail-item  slick-slide"
+                                                    data-slick-index="1" aria-hidden="true" style="width: 101px;">
+                                                    <a href="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428544_480x480.jpg?v=1602321412"
+                                                        data-zoom="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428544_1024x1024.jpg?v=1602321412"
+                                                        class="product-single__thumbnail product-single__thumbnail-product-template">
+                                                        <img src="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428544_160x160.jpg?v=1602321412"
+                                                            alt="LED Night Light With Wireless USB Rechargeable Motion Sensor">
+                                                    </a>
+                                                </div>
+                                                <div class="product-single__thumbnail-item  slick-slide"
+                                                    data-slick-index="2" aria-hidden="true" style="width: 101px;">
+                                                    <a href="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428550_480x480.jpg?v=1602321413"
+                                                        data-zoom="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428550_1024x1024.jpg?v=1602321413"
+                                                        class="product-single__thumbnail product-single__thumbnail-product-template">
+                                                        <img src="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428550_160x160.jpg?v=1602321413"
+                                                            alt="LED Night Light With Wireless USB Rechargeable Motion Sensor">
+                                                    </a>
+                                                </div>
+                                                <div class="product-single__thumbnail-item  slick-slide"
+                                                    data-slick-index="3" aria-hidden="true" style="width: 101px;">
+                                                    <a href="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428545_480x480.jpg?v=1602321414"
+                                                        data-zoom="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428545_1024x1024.jpg?v=1602321414"
+                                                        class="product-single__thumbnail product-single__thumbnail-product-template">
+                                                        <img src="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428545_160x160.jpg?v=1602321414"
+                                                            alt="LED Night Light With Wireless USB Rechargeable Motion Sensor">
+                                                    </a>
+                                                </div>
+                                                <div class="product-single__thumbnail-item  slick-slide"
+                                                    data-slick-index="4" aria-hidden="true" style="width: 101px;">
+                                                    <a href="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428552_480x480.jpg?v=1602321414"
+                                                        data-zoom="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428552_1024x1024.jpg?v=1602321414"
+                                                        class="product-single__thumbnail product-single__thumbnail-product-template">
+                                                        <img src="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428552_160x160.jpg?v=1602321414"
+                                                            alt="LED Night Light With Wireless USB Rechargeable Motion Sensor">
+                                                    </a>
+                                                </div>
+                                                <div class="product-single__thumbnail-item  slick-slide"
+                                                    data-slick-index="5" aria-hidden="true" style="width: 101px;">
+                                                    <a href="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428546_480x480.jpg?v=1602321415"
+                                                        data-zoom="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428546_1024x1024.jpg?v=1602321415"
+                                                        class="product-single__thumbnail product-single__thumbnail-product-template">
+                                                        <img src="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428546_160x160.jpg?v=1602321415"
+                                                            alt="LED Night Light With Wireless USB Rechargeable Motion Sensor">
+                                                    </a>
+                                                </div>
+                                                <div class="product-single__thumbnail-item  slick-slide slick-current slick-active"
+                                                    data-slick-index="6" aria-hidden="false" style="width: 101px;">
+                                                    <a href="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428549_480x480.jpg?v=1602321416"
+                                                        data-zoom="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428549_1024x1024.jpg?v=1602321416"
+                                                        class="product-single__thumbnail product-single__thumbnail-product-template">
+                                                        <img src="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428549_160x160.jpg?v=1602321416"
+                                                            alt="LED Night Light With Wireless USB Rechargeable Motion Sensor">
+                                                    </a>
+                                                </div>
+                                                <div class="product-single__thumbnail-item  is-active  slick-slide slick-active"
+                                                    data-slick-index="7" aria-hidden="false" style="width: 101px;">
+                                                    <a href="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428548_480x480.jpg?v=1602321417"
+                                                        data-zoom="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428548_1024x1024.jpg?v=1602321417"
+                                                        class="product-single__thumbnail product-single__thumbnail-product-template">
+                                                        <img src="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428548_160x160.jpg?v=1602321417"
+                                                            alt="LED Night Light With Wireless USB Rechargeable Motion Sensor">
+                                                    </a>
+                                                </div>
+                                                <div class="product-single__thumbnail-item  slick-slide slick-active"
+                                                    data-slick-index="8" aria-hidden="false" style="width: 101px;">
+                                                    <a href="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428547_480x480.jpg?v=1602321419"
+                                                        data-zoom="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428547_1024x1024.jpg?v=1602321419"
+                                                        class="product-single__thumbnail product-single__thumbnail-product-template">
+                                                        <img src="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428547_160x160.jpg?v=1602321419"
+                                                            alt="LED Night Light With Wireless USB Rechargeable Motion Sensor">
+                                                    </a>
+                                                </div>
+                                                <div class="product-single__thumbnail-item  slick-slide"
+                                                    data-slick-index="9" aria-hidden="true" style="width: 101px;">
+                                                    <a href="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428551_480x480.jpg?v=1602321420"
+                                                        data-zoom="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428551_1024x1024.jpg?v=1602321420"
+                                                        class="product-single__thumbnail product-single__thumbnail-product-template">
+                                                        <img src="//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428551_160x160.jpg?v=1602321420"
+                                                            alt="LED Night Light With Wireless USB Rechargeable Motion Sensor">
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        <button type="button" class="slick-next slick-arrow" style="display: block;"
+                                            aria-disabled="false"><span class="medium-up--hide"><svg aria-hidden="true"
+                                                    focusable="false" role="presentation" class="icon icon-arrow-right"
+                                                    viewBox="0 0 32 32">
+                                                    <path fill="#444"
+                                                        d="M7.667 3.795l1.797-1.684L24.334 16 9.464 29.889l-1.797-1.675L20.731 16z">
+                                                    </path>
+                                                </svg></span><span class="small--hide"><svg aria-hidden="true"
+                                                    focusable="false" role="presentation" class="icon icon-arrow-down"
+                                                    viewBox="0 0 32 32">
+                                                    <path fill="#444"
+                                                        d="M26.984 8.5l1.516 1.617L16 23.5 3.5 10.117 5.008 8.5 16 20.258z">
+                                                    </path>
+                                                </svg></span></button>
                                     </div>
-
-                                    <div
-                                        class="grid__item wide--one-third post-large--one-third large--one-half product_single_detail_section">
-                                        <span class="sku_wrapper">SKU : <span class="sku variant-sku" id="product-sku"
-                                                itemprop="sku">U165-BW1595 XL</span></span>
-
-                                        <p class="product-inventory" id="product-inventory">
-                                            <label>Availability : </label>
-                                            <span>Many In Stock</span>
-                                        </p>
-
-
-                                        <h2 itemprop="name" class="product-single__title">
-                                            <?php echo $single['title']; ?>
-                                        </h2><a style="text-decoration: none!important;"
-                                            class="areviews_main_header_container" href="javascript:void(0);"> <span
-                                                class="main_starts_box areviews_header_rating"
-                                                style="display:inline-block;font-size:16px;margin:5px 0"> <i
-                                                    style="color:#f3c621" class="far fa-star" aria-hidden="true"></i> <i
-                                                    style="color:#f3c621" class="far fa-star" aria-hidden="true"></i> <i
-                                                    style="color:#f3c621" class="far fa-star" aria-hidden="true"></i> <i
-                                                    style="color:#f3c621" class="far fa-star" aria-hidden="true"></i> <i
-                                                    style="color:#f3c621" class="far fa-star" aria-hidden="true"></i>
-                                                <span style="display: inline-block;color:#212020"
-                                                    class="areviews_no_reviews_title">Write Review</span> </span> </a>
-                                        <div class="product_single_price">
-
-                                            <div class="product_price">
-
-                                                <div class="grid-link__org_price" id="ProductPrice">$20.30</div>
-                                            </div>
-
-                                        </div>
-
-
-
-
-                                        <div class="grid__item product_desc_section"
-                                            style="position:relative;border-top:1px solid $colorBorder;">
-
-                                            <div class="product-description rte " itemprop="description">
-                                                Black crotchless lace brief with hook front closurePoly bag packaging
-                                                Packaging dimensions (in): 13x10x1Size: X LargeColor: Black
-                                            </div>
-
-                                        </div>
-
-
-                                        <img
-                                            src="//cdn.shopify.com/s/files/1/0083/1478/1775/t/2/assets/limited_stock.gif?v=9055372050679490898">
-
-
-                                        <p style="color:#27ae60; font-size:20px;"><strong>⏩ Top Quality
-                                                Product<br></strong></p>
-
-                                        <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-
-                                            <meta itemprop="priceCurrency" content="USD">
-                                            <link itemprop="availability" href="http://schema.org/InStock">
-
-                                            <form method="post" action="/cart/add" id="AddToCartForm"
-                                                accept-charset="UTF-8" class="product-form"
-                                                enctype="multipart/form-data"><input type="hidden" name="form_type"
-                                                    value="product"><input type="hidden" name="utf8" value="✓">
-                                                <div class="selector-wrapper-secton" style="display: none;">
-
-                                                    <style>
-                                                    label[for="productSelect-option-0-0"] {
-                                                        display: none;
-                                                    }
-
-                                                    #add-to-cart-form .selector-wrapper {
-                                                        display: none
-                                                    }
-
-                                                    #productSelect-option-0-0 {
-                                                        display: none;
-                                                    }
-
-                                                    #productSelect-option-0-0+.custom-style-select-box {
-                                                        display: none !important;
-                                                    }
-                                                    </style>
-                                                    <script>
-                                                    jQuery(window).load(function() {
-                                                        jQuery(
-                                                                '.product_single_detail_section .selector-wrapper:eq(0)'
-                                                            )
-                                                            .hide();
-                                                    });
-                                                    </script>
-
-                                                    <div class="swatch clearfix" data-option-index="0">
-                                                        <div class="header">Title : </div>
-                                                        <div class="swatch-section">
-
-                                                            <div data-value="Default Title"
-                                                                class="swatch-element default-title available">
-
-                                                                <input id="swatch-0-default-title" type="radio"
-                                                                    name="option-0" value="Default Title" checked="">
-
-                                                                <label for="swatch-0-default-title">
-                                                                    Default Title
-                                                                    <img class="crossed-out"
-                                                                        src="//cdn.shopify.com/s/files/1/0083/1478/1775/t/2/assets/soldout.png?v=6625312704354037208">
-                                                                </label>
-
-                                                            </div>
-
-
-                                                            <script>
-                                                            jQuery('.swatch[data-option-index="0"] .default-title')
-                                                                .removeClass('soldout').addClass('available').find(
-                                                                    ':radio').removeAttr('disabled');
-                                                            </script>
-
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="selector-wrapper" style="display: none;">
-                                                        <div class="selector-arrow"><select
-                                                                class="single-option-selector" data-option="option1"
-                                                                id="productSelect-option-0">
-                                                                <option value="Default Title">Default Title</option>
-                                                            </select></div>
-                                                    </div><select name="id" id="productSelect"
-                                                        class=" product-single__variants " style="display: none;">
-
-                                                        <option selected="selected" value="32133767856207">Default Title
-                                                        </option>
-
-                                                    </select>
-                                                </div>
-                                                <div class="product-single__quantity ">
-                                                    <div class="quantity-box-section">
-                                                        <label>Quantity :</label>
-                                                        <div class="dec button">-</div>
-                                                        <input type="number" id="quantity" name="quantity" value="1">
-                                                        <div class="inc button">+</div>
-                                                        <script>
-                                                        jQuery(".button").on("click", function() {
-                                                            var oldValue = jQuery("#quantity").val(),
-                                                                newVal = 1;
-
-                                                            if (jQuery(this).text() == "+") {
-                                                                newVal = parseInt(oldValue) + 1;
-                                                            } else if (oldValue > 1) {
-                                                                newVal = parseInt(oldValue) - 1;
-                                                            }
-
-                                                            jQuery("#quantity").val(newVal);
-
-                                                            updatePricing();
-
-                                                        });
-
-
-
-
-                                                        //update price when changing quantity
-                                                        function updatePricing() {
-
-                                                            //try pattern one before pattern 2
-                                                            var regex = /([0-9]+[.|,][0-9]+[.|,][0-9]+)/g;
-                                                            var unitPriceTextMatch = jQuery(
-                                                                '.product-single #ProductPrice').text().match(regex);
-
-                                                            if (!unitPriceTextMatch) {
-                                                                regex = /([0-9]+[.|,][0-9]+)/g;
-                                                                unitPriceTextMatch = jQuery(
-                                                                    '.product-single #ProductPrice').text().match(
-                                                                    regex);
-                                                            }
-
-                                                            if (unitPriceTextMatch) {
-                                                                var unitPriceText = unitPriceTextMatch[0];
-                                                                var unitPrice = unitPriceText.replace(/[.|,]/g, '');
-                                                                var quantity = parseInt(jQuery('#quantity').val());
-                                                                var totalPrice = unitPrice * quantity;
-
-                                                                var totalPriceText = Shopify.formatMoney(totalPrice,
-                                                                    window.money_format);
-                                                                regex = /([0-9]+[.|,][0-9]+[.|,][0-9]+)/g;
-                                                                if (!totalPriceText.match(regex)) {
-                                                                    regex = /([0-9]+[.|,][0-9]+)/g;
-                                                                }
-                                                                totalPriceText = totalPriceText.match(regex)[0];
-
-                                                                var regInput = new RegExp(unitPriceText, "g");
-                                                                var totalPriceHtml = jQuery(
-                                                                    '.product-single #ProductPrice').html().replace(
-                                                                    regInput, totalPriceText);
-
-                                                                jQuery('.product-single .total-price span').html(
-                                                                    totalPriceHtml);
-                                                            }
-                                                        }
-
-                                                        jQuery('#quantity').on('change', updatePricing);
-                                                        </script>
-
-
-
-
-                                                        <div class="total-price">
-                                                            <label><b>Subtotal :</b></label><span>$20.30</span>
-                                                        </div>
-
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="product-infor">
-
-
-
-                                                    <p class="product-type">
-                                                        <label>Movement : </label>
-                                                        <span>Panty</span>
-                                                    </p>
-
-                                                </div>
-                                                <button type="submit" name="add" id="AddToCart" class="btn">
-                                                    <i class="fa fa-cart-plus" aria-hidden="true"></i><span
-                                                        id="AddToCartText">Add to Cart</span>
-                                                </button>
-
-
-                                                <div data-shopify="payment-button" class="shopify-payment-button">
-                                                    <div>
-                                                        <div>
-                                                            <div>
-                                                                <div class="shopify-cleanslate">
-                                                                    <div id="shopify-svg-symbols"
-                                                                        class="VoW3UuJKYxZJHMpUkDNUv"
-                                                                        aria-hidden="true"><svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            xmlnsXlink="http://www.w3.org/1999/xlink"
-                                                                            focusable="false">
-                                                                            <defs>
-                                                                                <symbol id="shopify-svg__warning"
-                                                                                    viewBox="0 0 16 14">
-                                                                                    <path
-                                                                                        d="M5.925 2.344c1.146-1.889 3.002-1.893 4.149 0l4.994 8.235c1.146 1.889.288 3.421-1.916 3.421h-10.305c-2.204 0-3.063-1.529-1.916-3.421l4.994-8.235zm1.075 1.656v5h2v-5h-2zm0 6v2h2v-2h-2z">
-                                                                                    </path>
-                                                                                </symbol>
-                                                                                <symbol id="shopify-svg__loading"
-                                                                                    viewBox="0 0 32 32">
-                                                                                    <path
-                                                                                        d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0v2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14h2z">
-                                                                                    </path>
-                                                                                </symbol>
-                                                                                <symbol id="shopify-svg__error"
-                                                                                    viewBox="0 0 18 18">
-                                                                                    <path
-                                                                                        d="M9 18c5 0 9-4 9-9s-4-9-9-9-9 4-9 9 4 9 9 9z"
-                                                                                        style="fill: rgb(255, 62, 62);">
-                                                                                    </path>
-                                                                                    <path d="M8 4h2v6H8z"
-                                                                                        style="fill: rgb(255, 255, 255);">
-                                                                                    </path>
-                                                                                    <rect x="7.8" y="12" width="2.5"
-                                                                                        height="2.5" rx="1.3"
-                                                                                        style="fill: rgb(255, 255, 255);">
-                                                                                    </rect>
-                                                                                </symbol>
-                                                                                <symbol id="shopify-svg__close-circle"
-                                                                                    viewBox="0 0 16 16">
-                                                                                    <circle cx="8" cy="8" r="8">
-                                                                                    </circle>
-                                                                                    <path d="M10.5 5.5l-5 5M5.5 5.5l5 5"
-                                                                                        stroke="#FFF" stroke-width="1.5"
-                                                                                        stroke-linecap="square"></path>
-                                                                                </symbol>
-                                                                                <symbol id="shopify-svg__close"
-                                                                                    viewBox="0 0 20 20">
-                                                                                    <path
-                                                                                        d="M17.1 4.3l-1.4-1.4-5.7 5.7-5.7-5.7-1.4 1.4 5.7 5.7-5.7 5.7 1.4 1.4 5.7-5.7 5.7 5.7 1.4-1.4-5.7-5.7z">
-                                                                                    </path>
-                                                                                </symbol>
-                                                                                <symbol id="shopify-svg__arrow-right"
-                                                                                    viewBox="0 0 16 16">
-                                                                                    <path
-                                                                                        d="M16 8.1l-8.1 8.1-1.1-1.1L13 8.9H0V7.3h13L6.8 1.1 7.9 0 16 8.1z">
-                                                                                    </path>
-                                                                                </symbol>
-                                                                                <symbol
-                                                                                    id="shopify-svg__payments-google-pay-light"
-                                                                                    viewBox="0 0 41 17">
-                                                                                    <path
-                                                                                        d="M19.526 2.635v4.083h2.518c.6 0 1.096-.202 1.488-.605.403-.402.605-.882.605-1.437 0-.544-.202-1.018-.605-1.422-.392-.413-.888-.62-1.488-.62h-2.518zm0 5.52v4.736h-1.504V1.198h3.99c1.013 0 1.873.337 2.582 1.012.72.675 1.08 1.497 1.08 2.466 0 .991-.36 1.819-1.08 2.482-.697.665-1.559.996-2.583.996h-2.485v.001zM27.194 10.442c0 .392.166.718.499.98.332.26.722.391 1.168.391.633 0 1.196-.234 1.692-.701.497-.469.744-1.019.744-1.65-.469-.37-1.123-.555-1.962-.555-.61 0-1.12.148-1.528.442-.409.294-.613.657-.613 1.093m1.946-5.815c1.112 0 1.989.297 2.633.89.642.594.964 1.408.964 2.442v4.932h-1.439v-1.11h-.065c-.622.914-1.45 1.372-2.486 1.372-.882 0-1.621-.262-2.215-.784-.594-.523-.891-1.176-.891-1.96 0-.828.313-1.486.94-1.976s1.463-.735 2.51-.735c.892 0 1.629.163 2.206.49v-.344c0-.522-.207-.966-.621-1.33a2.132 2.132 0 0 0-1.455-.547c-.84 0-1.504.353-1.995 1.062l-1.324-.834c.73-1.045 1.81-1.568 3.238-1.568M40.993 4.889l-5.02 11.53H34.42l1.864-4.034-3.302-7.496h1.635l2.387 5.749h.032l2.322-5.75z"
-                                                                                        style="fill: rgb(255, 255, 255);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M13.448 7.134c0-.473-.04-.93-.116-1.366H6.988v2.588h3.634a3.11 3.11 0 0 1-1.344 2.042v1.68h2.169c1.27-1.17 2.001-2.9 2.001-4.944"
-                                                                                        style="fill: rgb(66, 133, 244);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M6.988 13.7c1.816 0 3.344-.595 4.459-1.621l-2.169-1.681c-.603.406-1.38.643-2.29.643-1.754 0-3.244-1.182-3.776-2.774H.978v1.731a6.728 6.728 0 0 0 6.01 3.703"
-                                                                                        style="fill: rgb(52, 168, 83);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M3.212 8.267a4.034 4.034 0 0 1 0-2.572V3.964H.978A6.678 6.678 0 0 0 .261 6.98c0 1.085.26 2.11.717 3.017l2.234-1.731z"
-                                                                                        style="fill: rgb(251, 188, 5);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M6.988 2.921c.992 0 1.88.34 2.58 1.008v.001l1.92-1.918C10.324.928 8.804.262 6.989.262a6.728 6.728 0 0 0-6.01 3.702l2.234 1.731c.532-1.592 2.022-2.774 3.776-2.774"
-                                                                                        style="fill: rgb(234, 67, 53);">
-                                                                                    </path>
-                                                                                </symbol>
-                                                                                <symbol
-                                                                                    id="shopify-svg__payments-google-pay-dark"
-                                                                                    viewBox="0 0 41 17">
-                                                                                    <path
-                                                                                        d="M19.526 2.635v4.083h2.518c.6 0 1.096-.202 1.488-.605.403-.402.605-.882.605-1.437 0-.544-.202-1.018-.605-1.422-.392-.413-.888-.62-1.488-.62h-2.518zm0 5.52v4.736h-1.504V1.198h3.99c1.013 0 1.873.337 2.582 1.012.72.675 1.08 1.497 1.08 2.466 0 .991-.36 1.819-1.08 2.482-.697.665-1.559.996-2.583.996h-2.485v.001zM27.194 10.442c0 .392.166.718.499.98.332.26.722.391 1.168.391.633 0 1.196-.234 1.692-.701.497-.469.744-1.019.744-1.65-.469-.37-1.123-.555-1.962-.555-.61 0-1.12.148-1.528.442-.409.294-.613.657-.613 1.093m1.946-5.815c1.112 0 1.989.297 2.633.89.642.594.964 1.408.964 2.442v4.932h-1.439v-1.11h-.065c-.622.914-1.45 1.372-2.486 1.372-.882 0-1.621-.262-2.215-.784-.594-.523-.891-1.176-.891-1.96 0-.828.313-1.486.94-1.976s1.463-.735 2.51-.735c.892 0 1.629.163 2.206.49v-.344c0-.522-.207-.966-.621-1.33a2.132 2.132 0 0 0-1.455-.547c-.84 0-1.504.353-1.995 1.062l-1.324-.834c.73-1.045 1.81-1.568 3.238-1.568M40.993 4.889l-5.02 11.53H34.42l1.864-4.034-3.302-7.496h1.635l2.387 5.749h.032l2.322-5.75z"
-                                                                                        style="fill: rgba(0, 0, 0, 0.55);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M13.448 7.134c0-.473-.04-.93-.116-1.366H6.988v2.588h3.634a3.11 3.11 0 0 1-1.344 2.042v1.68h2.169c1.27-1.17 2.001-2.9 2.001-4.944"
-                                                                                        style="fill: rgb(66, 133, 244);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M6.988 13.7c1.816 0 3.344-.595 4.459-1.621l-2.169-1.681c-.603.406-1.38.643-2.29.643-1.754 0-3.244-1.182-3.776-2.774H.978v1.731a6.728 6.728 0 0 0 6.01 3.703"
-                                                                                        style="fill: rgb(52, 168, 83);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M3.212 8.267a4.034 4.034 0 0 1 0-2.572V3.964H.978A6.678 6.678 0 0 0 .261 6.98c0 1.085.26 2.11.717 3.017l2.234-1.731z"
-                                                                                        style="fill: rgb(251, 188, 5);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M6.988 2.921c.992 0 1.88.34 2.58 1.008v.001l1.92-1.918C10.324.928 8.804.262 6.989.262a6.728 6.728 0 0 0-6.01 3.702l2.234 1.731c.532-1.592 2.022-2.774 3.776-2.774"
-                                                                                        style="fill: rgb(234, 67, 53);">
-                                                                                    </path>
-                                                                                </symbol>
-                                                                                <symbol
-                                                                                    id="shopify-svg__payments-amazon-pay"
-                                                                                    viewBox="0 0 102 20">
-                                                                                    <path
-                                                                                        d="M75.19 1.786c-.994 0-1.933.326-2.815.98v5.94c.896.683 1.82 1.023 2.774 1.023 1.932 0 2.899-1.32 2.899-3.96 0-2.655-.953-3.983-2.858-3.983zm-2.962-.277A5.885 5.885 0 0 1 73.93.444a4.926 4.926 0 0 1 1.85-.362c.672 0 1.282.127 1.827.383a3.763 3.763 0 0 1 1.387 1.108c.378.482.669 1.068.872 1.757.203.689.305 1.466.305 2.332 0 .88-.109 1.675-.326 2.385-.217.71-.522 1.314-.914 1.81a4.137 4.137 0 0 1-1.429 1.16 4.165 4.165 0 0 1-1.87.416c-1.26 0-2.346-.419-3.256-1.256v4.983c0 .284-.14.426-.42.426h-1.24c-.28 0-.42-.142-.42-.426V.827c0-.284.14-.426.42-.426h.925c.28 0 .441.142.483.426l.105.682zm13.194 8.37a4.21 4.21 0 0 0 1.45-.277 5.463 5.463 0 0 0 1.45-.81V6.62c-.35-.085-.719-.152-1.104-.202a8.8 8.8 0 0 0-1.124-.075c-1.583 0-2.374.617-2.374 1.853 0 .54.147.955.441 1.246.294.29.715.437 1.261.437zm-2.458-7.625l-.158.053a.561.561 0 0 1-.179.033c-.182 0-.273-.128-.273-.384V1.38c0-.199.028-.337.084-.415.056-.078.169-.153.337-.224.448-.199 1-.359 1.66-.48.657-.12 1.316-.18 1.974-.18 1.33 0 2.311.277 2.942.83.63.554.945 1.413.945 2.577v7.284c0 .284-.14.426-.42.426h-.903c-.267 0-.42-.135-.463-.405l-.105-.702a5.74 5.74 0 0 1-1.67 1.022 4.908 4.908 0 0 1-1.817.362c-1.009 0-1.807-.288-2.395-.863-.589-.575-.883-1.345-.883-2.31 0-1.037.364-1.864 1.092-2.481.73-.618 1.71-.927 2.942-.927.784 0 1.667.12 2.647.362V3.852c0-.767-.168-1.307-.504-1.619-.336-.313-.925-.469-1.764-.469-.982 0-2.01.163-3.09.49zm14.16 10.84c-.379.98-.816 1.683-1.314 2.109-.496.426-1.144.639-1.943.639-.448 0-.847-.05-1.197-.15a.606.606 0 0 1-.336-.202c-.07-.093-.105-.237-.105-.437V14.5c0-.27.105-.405.315-.405.07 0 .175.014.315.043.14.028.33.043.567.043.532 0 .946-.128 1.24-.384.294-.255.56-.724.798-1.406l.4-1.086-4.056-10.137c-.098-.241-.146-.411-.146-.511 0-.17.097-.256.294-.256h1.26c.224 0 .378.036.463.106.083.072.167.228.251.47l2.942 8.263L99.708.976c.084-.24.168-.397.252-.469.084-.07.238-.106.462-.106h1.177c.196 0 .294.086.294.256 0 .1-.05.27-.147.51l-4.622 11.927M40.15 15.47c-3.761 2.814-9.216 4.31-13.912 4.31-6.583 0-12.51-2.466-16.996-6.572-.352-.322-.038-.763.385-.513 4.84 2.855 10.825 4.574 17.006 4.574 4.17 0 8.753-.877 12.971-2.691.636-.273 1.17.425.547.891"
-                                                                                        style="fill: rgb(51, 62, 72);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M41.717 13.657c-.482-.624-3.181-.296-4.394-.148-.368.044-.425-.281-.093-.517 2.153-1.533 5.682-1.09 6.092-.577.413.518-.108 4.104-2.127 5.816-.31.263-.605.122-.468-.225.455-1.15 1.471-3.724.99-4.349M37.429 2.06V.57A.365.365 0 0 1 37.8.193l6.59-.001c.21 0 .38.155.38.376v1.278c-.003.214-.18.494-.496.938L40.86 7.722c1.267-.03 2.607.163 3.757.818.26.148.33.367.35.582v1.59c0 .218-.237.472-.485.34-2.028-1.077-4.718-1.194-6.96.013-.23.124-.47-.126-.47-.345V9.209c0-.242.005-.656.246-1.024l3.953-5.75H37.81a.369.369 0 0 1-.38-.375M13.4 11.365h-2.005a.38.38 0 0 1-.358-.343L11.038.595a.38.38 0 0 1 .387-.375h1.866a.38.38 0 0 1 .365.35v1.36h.037C14.18.615 15.096 0 16.331 0c1.253 0 2.039.614 2.6 1.93C19.418.615 20.521 0 21.7 0c.842 0 1.758.351 2.32 1.141.635.878.505 2.15.505 3.27l-.002 6.58a.38.38 0 0 1-.387.374h-2.001a.378.378 0 0 1-.36-.374V5.463c0-.438.037-1.535-.056-1.952-.15-.703-.6-.9-1.179-.9-.486 0-.991.33-1.197.855-.206.527-.188 1.405-.188 1.997v5.527a.38.38 0 0 1-.386.375h-2.002a.379.379 0 0 1-.36-.374l-.001-5.528c0-1.163.186-2.874-1.235-2.874-1.44 0-1.384 1.668-1.384 2.874l-.001 5.527a.38.38 0 0 1-.387.375m37.059-9.236c-1.478 0-1.571 2.04-1.571 3.312 0 1.273-.02 3.993 1.552 3.993 1.554 0 1.628-2.194 1.628-3.532 0-.877-.038-1.93-.3-2.764-.224-.724-.673-1.01-1.31-1.01zM50.439 0c2.975 0 4.584 2.59 4.584 5.88 0 3.181-1.777 5.705-4.584 5.705-2.918 0-4.508-2.59-4.508-5.814C45.93 2.523 47.539 0 50.439 0zm8.441 11.365h-1.997a.379.379 0 0 1-.36-.374L56.52.561a.381.381 0 0 1 .386-.34L58.764.22c.175.009.32.13.356.291v1.595h.038C59.72.68 60.505 0 61.89 0c.898 0 1.778.329 2.339 1.229.524.834.524 2.237.524 3.247v6.561a.382.382 0 0 1-.385.328H62.36a.38.38 0 0 1-.357-.328V5.376c0-1.141.13-2.809-1.253-2.809-.487 0-.936.33-1.16.834-.281.636-.319 1.272-.319 1.975v5.614a.386.386 0 0 1-.39.375m-24.684.075a.41.41 0 0 1-.473.047c-.665-.56-.785-.82-1.149-1.354-1.1 1.136-1.879 1.477-3.304 1.477-1.687 0-3-1.055-3-3.166 0-1.65.882-2.77 2.138-3.32 1.087-.484 2.606-.572 3.769-.704v-.264c0-.484.037-1.055-.245-1.473-.243-.374-.712-.528-1.124-.528-.765 0-1.444.397-1.611 1.22-.035.183-.167.364-.348.374l-1.943-.214c-.164-.037-.346-.17-.299-.425C27.055.721 29.183 0 31.09 0c.975 0 2.25.263 3.018 1.011.975.924.881 2.155.881 3.497v3.165c0 .952.39 1.37.757 1.882.128.185.156.405-.007.54-.409.348-1.136.988-1.537 1.35l-.005-.005zm-2.02-4.953v-.44c-1.45 0-2.98.314-2.98 2.045 0 .88.45 1.473 1.218 1.473.562 0 1.069-.352 1.387-.923.394-.704.376-1.363.376-2.155zM7.926 11.44a.41.41 0 0 1-.473.047c-.667-.56-.786-.82-1.15-1.354C5.204 11.27 4.425 11.61 3 11.61c-1.688 0-3-1.055-3-3.166 0-1.65.88-2.77 2.137-3.32 1.087-.484 2.606-.572 3.768-.704v-.264c0-.484.038-1.055-.243-1.473-.244-.374-.713-.528-1.125-.528-.764 0-1.444.397-1.61 1.22-.036.183-.168.364-.35.374l-1.94-.214c-.165-.037-.347-.17-.3-.425C.783.721 2.911 0 4.818 0c.975 0 2.25.263 3.018 1.011.975.924.882 2.155.882 3.497v3.165c0 .952.39 1.37.756 1.882.128.185.157.405-.006.54a78.47 78.47 0 0 0-1.537 1.35l-.005-.005zm-2.02-4.953v-.44c-1.45 0-2.982.314-2.982 2.045 0 .88.45 1.473 1.219 1.473.562 0 1.069-.352 1.387-.923.394-.704.375-1.363.375-2.155z"
-                                                                                        style="fill: rgb(51, 62, 72);">
-                                                                                    </path>
-                                                                                </symbol>
-                                                                                <symbol
-                                                                                    id="shopify-svg__payments-apple-pay-dark"
-                                                                                    viewBox="0 0 43 19">
-                                                                                    <path
-                                                                                        d="M6.948 1.409C7.934.147 9.305.147 9.305.147s.193 1.18-.771 2.316c-1.05 1.2-2.228.993-2.228.993s-.236-.93.642-2.047zM3.82 3.663c-1.735 0-3.6 1.51-3.6 4.363 0 2.916 2.186 6.555 3.943 6.555.6 0 1.543-.6 2.485-.6.922 0 1.607.559 2.464.559 1.907 0 3.322-3.826 3.322-3.826s-2.015-.744-2.015-2.936c0-1.944 1.629-2.73 1.629-2.73s-.836-1.447-2.936-1.447c-1.22 0-2.164.661-2.656.661-.622.021-1.5-.6-2.636-.6zM19.64 1.426c2.453 0 4.188 1.788 4.188 4.396 0 2.608-1.755 4.417-4.248 4.417h-2.932v4.564h-1.974V1.426h4.966zm-2.992 7.067h2.473c1.695 0 2.693-.967 2.693-2.65 0-1.683-.978-2.671-2.693-2.671h-2.473v5.321zm7.559 3.429c0-1.767 1.296-2.777 3.65-2.945l2.572-.147v-.78c0-1.156-.738-1.787-1.994-1.787-1.037 0-1.795.568-1.955 1.43h-1.775c.06-1.788 1.656-3.092 3.79-3.092 2.333 0 3.829 1.304 3.829 3.281v6.9h-1.815v-1.684h-.04c-.519 1.094-1.715 1.788-3.012 1.788-1.934.021-3.25-1.178-3.25-2.965zm6.222-.905v-.778l-2.313.168c-1.297.084-1.975.59-1.975 1.494 0 .862.718 1.409 1.815 1.409 1.396-.021 2.473-.968 2.473-2.293zm3.969 7.383v-1.64c.14.041.438.041.598.041.897 0 1.416-.4 1.735-1.472l.14-.526L33.4 4.707h2.054l2.453 8.224h.04L40.4 4.707h1.994l-3.57 10.538c-.818 2.419-1.715 3.197-3.67 3.197-.14.02-.598-.021-.757-.042z"
-                                                                                        style="fill: rgb(0, 0, 0);">
-                                                                                    </path>
-                                                                                </symbol>
-                                                                                <symbol
-                                                                                    id="shopify-svg__payments-apple-pay-light"
-                                                                                    viewBox="0 0 43 19">
-                                                                                    <path
-                                                                                        d="M6.948 1.409C7.934.147 9.305.147 9.305.147s.193 1.18-.771 2.316c-1.05 1.2-2.228.993-2.228.993s-.236-.93.642-2.047zM3.82 3.663c-1.735 0-3.6 1.51-3.6 4.363 0 2.916 2.186 6.555 3.943 6.555.6 0 1.543-.6 2.485-.6.922 0 1.607.559 2.464.559 1.907 0 3.322-3.826 3.322-3.826s-2.015-.744-2.015-2.936c0-1.944 1.629-2.73 1.629-2.73s-.836-1.447-2.936-1.447c-1.22 0-2.164.661-2.656.661-.622.021-1.5-.6-2.636-.6zM19.64 1.426c2.453 0 4.188 1.788 4.188 4.396 0 2.608-1.755 4.417-4.248 4.417h-2.932v4.564h-1.974V1.426h4.966zm-2.992 7.067h2.473c1.695 0 2.693-.967 2.693-2.65 0-1.683-.978-2.671-2.693-2.671h-2.473v5.321zm7.559 3.429c0-1.767 1.296-2.777 3.65-2.945l2.572-.147v-.78c0-1.156-.738-1.787-1.994-1.787-1.037 0-1.795.568-1.955 1.43h-1.775c.06-1.788 1.656-3.092 3.79-3.092 2.333 0 3.829 1.304 3.829 3.281v6.9h-1.815v-1.684h-.04c-.519 1.094-1.715 1.788-3.012 1.788-1.934.021-3.25-1.178-3.25-2.965zm6.222-.905v-.778l-2.313.168c-1.297.084-1.975.59-1.975 1.494 0 .862.718 1.409 1.815 1.409 1.396-.021 2.473-.968 2.473-2.293zm3.969 7.383v-1.64c.14.041.438.041.598.041.897 0 1.416-.4 1.735-1.472l.14-.526L33.4 4.707h2.054l2.453 8.224h.04L40.4 4.707h1.994l-3.57 10.538c-.818 2.419-1.715 3.197-3.67 3.197-.14.02-.598-.021-.757-.042z"
-                                                                                        style="fill: rgb(255, 255, 255);">
-                                                                                    </path>
-                                                                                </symbol>
-                                                                                <symbol
-                                                                                    id="shopify-svg__payments-paypal"
-                                                                                    viewBox="0 0 67 19">
-                                                                                    <path
-                                                                                        d="M8.44.57H3.29a.718.718 0 0 0-.707.61L.502 14.517c-.041.263.16.5.425.5h2.458a.718.718 0 0 0 .707-.61l.561-3.597a.717.717 0 0 1 .706-.611h1.63c3.391 0 5.349-1.658 5.86-4.944.23-1.437.01-2.566-.657-3.357C11.461 1.029 10.162.57 8.44.57zm.594 4.87C8.752 7.308 7.34 7.308 5.976 7.308h-.777l.545-3.485a.43.43 0 0 1 .424-.366h.356c.93 0 1.807 0 2.26.535.27.32.353.794.25 1.45zm14.796-.06h-2.466a.43.43 0 0 0-.424.367l-.109.696-.172-.252c-.534-.783-1.724-1.044-2.912-1.044-2.725 0-5.052 2.084-5.505 5.008-.235 1.46.1 2.854.919 3.827.75.894 1.826 1.267 3.105 1.267 2.195 0 3.412-1.426 3.412-1.426l-.11.692a.432.432 0 0 0 .424.502h2.22a.718.718 0 0 0 .707-.61l1.333-8.526a.43.43 0 0 0-.423-.5zm-3.437 4.849c-.238 1.422-1.356 2.378-2.782 2.378-.716 0-1.288-.232-1.655-.672-.365-.436-.503-1.058-.387-1.75.222-1.41 1.359-2.397 2.763-2.397.7 0 1.269.235 1.644.678.375.448.524 1.073.417 1.763zM36.96 5.38h-2.478a.716.716 0 0 0-.592.318l-3.417 5.085-1.448-4.887a.719.719 0 0 0-.687-.515h-2.435a.433.433 0 0 0-.407.573l2.73 8.09-2.567 3.66a.434.434 0 0 0 .35.684h2.475a.712.712 0 0 0 .588-.31l8.24-12.016a.434.434 0 0 0-.352-.681z"
-                                                                                        style="fill: rgb(37, 59, 128);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M45.163.57h-5.15a.717.717 0 0 0-.706.61l-2.082 13.337a.43.43 0 0 0 .423.5h2.642a.502.502 0 0 0 .494-.427l.591-3.78a.717.717 0 0 1 .706-.611h1.63c3.392 0 5.348-1.658 5.86-4.944.231-1.437.009-2.566-.657-3.357C48.183 1.029 46.886.57 45.163.57zm.593 4.87c-.28 1.867-1.692 1.867-3.057 1.867h-.777l.546-3.485a.429.429 0 0 1 .423-.366h.356c.93 0 1.807 0 2.26.535.27.32.353.794.25 1.45zm14.795-.06h-2.464a.428.428 0 0 0-.423.367l-.109.696-.173-.252c-.534-.783-1.723-1.044-2.911-1.044-2.724 0-5.05 2.084-5.504 5.008-.235 1.46.099 2.854.918 3.827.753.894 1.826 1.267 3.105 1.267 2.195 0 3.413-1.426 3.413-1.426l-.11.692a.432.432 0 0 0 .424.502h2.22a.717.717 0 0 0 .707-.61l1.333-8.526a.433.433 0 0 0-.426-.5zm-3.436 4.849c-.237 1.422-1.356 2.378-2.782 2.378-.714 0-1.288-.232-1.655-.672-.365-.436-.502-1.058-.387-1.75.223-1.41 1.359-2.397 2.763-2.397.7 0 1.269.235 1.644.678.377.448.526 1.073.417 1.763zM63.458.935l-2.113 13.582a.43.43 0 0 0 .423.5h2.124a.716.716 0 0 0 .707-.61L66.683 1.07a.432.432 0 0 0-.423-.5h-2.379c-.21 0-.39.156-.423.366z"
-                                                                                        style="fill: rgb(23, 155, 215);">
-                                                                                    </path>
-                                                                                </symbol>
-                                                                                <symbol
-                                                                                    id="shopify-svg__payments-shopify-pay-dark"
-                                                                                    viewBox="134 256 410 1">
-                                                                                    <path
-                                                                                        d="M241.22,242.74c-3.07-6.44-8.89-10.6-17.66-10.6a17.58,17.58,0,0,0-13.81,7.1l-.32.39V214.39a.55.55,0,0,0-.55-.55h-12.4a.55.55,0,0,0-.54.55v72.4a.54.54,0,0,0,.54.54h13.28a.55.55,0,0,0,.55-.54V255.92c0-6,4-10.25,10.4-10.25,7,0,8.77,5.76,8.77,11.63v29.49a.54.54,0,0,0,.54.54h13.25a.55.55,0,0,0,.55-.54V255.54c0-1.07,0-2.12-.14-3.14A27.63,27.63,0,0,0,241.22,242.74Z"
-                                                                                        style="fill: white;"></path>
-                                                                                    <path
-                                                                                        d="M174.91,253.47s-6.76-1.59-9.25-2.23-6.84-2-6.84-5.29,3.51-4.34,7.07-4.34,7.52.86,7.83,4.81a.57.57,0,0,0,.57.52l13.09-.05a.56.56,0,0,0,.56-.6c-.81-12.64-11.9-17.16-22.13-17.16-12.13,0-21,8-21,16.82,0,6.44,1.82,12.48,16.13,16.68,2.51.73,5.92,1.68,8.9,2.51,3.58,1,5.51,2.51,5.51,4.89,0,2.76-4,4.68-7.93,4.68-5.69,0-9.73-2.11-10.06-5.9a.57.57,0,0,0-.57-.5l-13.06.06a.57.57,0,0,0-.57.59c.6,11.93,12.12,18.36,22.86,18.36,16,0,23.23-9,23.23-17.43C189.27,265.93,188.36,256.91,174.91,253.47Z"
-                                                                                        style="fill: white;"></path>
-                                                                                    <path
-                                                                                        d="M343.31,232.12c-6.65,0-12.22,3.68-15.81,8.12v-7.6a.54.54,0,0,0-.53-.54H314.55a.54.54,0,0,0-.54.54v71a.54.54,0,0,0,.54.53h13.29a.53.53,0,0,0,.53-.53V280.3h.2c2.11,3.22,7.88,7.08,15.42,7.08,14.18,0,26-11.76,26-27.65C370,244.48,358.24,232.12,343.31,232.12Zm-1.23,41.73a14.09,14.09,0,1,1,13.74-14.12A13.9,13.9,0,0,1,342.08,273.85Z"
-                                                                                        style="fill: white;"></path>
-                                                                                    <path
-                                                                                        d="M274.68,229c-12.39,0-18.57,4.21-23.53,7.58l-.15.1a1.23,1.23,0,0,0-.37,1.63l4.9,8.44a1.24,1.24,0,0,0,.87.6,1.21,1.21,0,0,0,1-.27l.39-.32c2.55-2.14,6.64-5,16.54-5.78,5.51-.44,10.27,1,13.78,4.28,3.86,3.56,6.17,9.31,6.17,15.38,0,11.17-6.58,18.19-17.15,18.33-8.71-.05-14.56-4.59-14.56-11.3,0-3.56,1.61-5.88,4.75-8.2a1.22,1.22,0,0,0,.37-1.56l-4.4-8.32a1.29,1.29,0,0,0-.77-.62,1.24,1.24,0,0,0-1,.13c-4.94,2.93-11,8.29-10.67,18.59.4,13.11,11.3,23.12,25.47,23.53l.71,0H278c16.84-.55,29-13.05,29-30C307,245.66,295.66,229,274.68,229Z"
-                                                                                        style="fill: white;"></path>
-                                                                                    <path
-                                                                                        d="M342.08,245.68a14.09,14.09,0,1,0,13.74,14.05A13.84,13.84,0,0,0,342.08,245.68Z"
-                                                                                        style="fill: rgb(90, 49, 244);">
-                                                                                    </path>
-                                                                                    <rect x="383.23" y="214.02"
-                                                                                        width="141.73" height="90.42"
-                                                                                        rx="14.17" style="fill: white;">
-                                                                                    </rect>
-                                                                                    <path
-                                                                                        d="M439.07,246.62c0,9.67-6.77,16.57-16.23,16.57h-8.92a.75.75,0,0,0-.75.75v12.7a.75.75,0,0,1-.75.75h-6.28a.76.76,0,0,1-.75-.75V230.81a.75.75,0,0,1,.75-.75h16.7C432.3,230.06,439.07,237,439.07,246.62Zm-7.78,0c0-5.54-3.79-9.6-8.93-9.6h-8.44a.76.76,0,0,0-.75.75v17.71a.75.75,0,0,0,.75.74h8.44C427.5,256.22,431.29,252.17,431.29,246.62Z"
-                                                                                        style="fill: rgb(90, 49, 244);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M440.92,268.6a8.91,8.91,0,0,1,3.72-7.64c2.44-1.83,6.22-2.78,11.83-3l5.95-.2V256c0-3.51-2.36-5-6.15-5s-6.18,1.34-6.74,3.53a.72.72,0,0,1-.72.52h-5.87a.74.74,0,0,1-.75-.85c.88-5.2,5.18-9.15,14.35-9.15,9.74,0,13.25,4.53,13.25,13.18v18.38a.75.75,0,0,1-.75.76h-5.93a.75.75,0,0,1-.75-.76v-1.37a.56.56,0,0,0-1-.39c-1.77,1.93-4.65,3.33-9.24,3.33C445.39,278.2,440.92,274.68,440.92,268.6Zm21.5-4v-1.42l-7.7.4c-4.06.21-6.43,1.9-6.43,4.74,0,2.57,2.17,4,5.95,4C459.38,272.32,462.42,269.54,462.42,264.61Z"
-                                                                                        style="fill: rgb(90, 49, 244);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M475.75,291.27v-5.35a.76.76,0,0,1,.9-.75,14.84,14.84,0,0,0,2.75.26,7.11,7.11,0,0,0,7.17-5.07l.39-1.23a.74.74,0,0,0,0-.51l-12.34-31.7a.76.76,0,0,1,.71-1h6a.77.77,0,0,1,.71.49l8.38,22.36a.77.77,0,0,0,1.44,0l7.27-22.3a.75.75,0,0,1,.72-.52H506a.76.76,0,0,1,.71,1l-13.2,35.21c-3,8.18-8.25,10.28-14,10.28a11.17,11.17,0,0,1-3.21-.39A.77.77,0,0,1,475.75,291.27Z"
-                                                                                        style="fill: rgb(90, 49, 244);">
-                                                                                    </path>
-                                                                                </symbol>
-                                                                                <symbol
-                                                                                    id="shopify-svg__payments-shopify-pay-light"
-                                                                                    viewBox="134 256 410 1">
-                                                                                    <path
-                                                                                        d="M241.22,242.74c-3.07-6.44-8.89-10.6-17.66-10.6a17.58,17.58,0,0,0-13.81,7.1l-.32.39V214.39a.55.55,0,0,0-.55-.55h-12.4a.55.55,0,0,0-.54.55v72.4a.54.54,0,0,0,.54.54h13.28a.55.55,0,0,0,.55-.54V255.92c0-6,4-10.25,10.4-10.25,7,0,8.77,5.76,8.77,11.63v29.49a.54.54,0,0,0,.54.54h13.25a.55.55,0,0,0,.55-.54V255.54c0-1.07,0-2.12-.14-3.14A27.63,27.63,0,0,0,241.22,242.74Z"
-                                                                                        style="fill: white;"></path>
-                                                                                    <path
-                                                                                        d="M174.91,253.47s-6.76-1.59-9.25-2.23-6.84-2-6.84-5.29,3.51-4.34,7.07-4.34,7.52.86,7.83,4.81a.57.57,0,0,0,.57.52l13.09-.05a.56.56,0,0,0,.56-.6c-.81-12.64-11.9-17.16-22.13-17.16-12.13,0-21,8-21,16.82,0,6.44,1.82,12.48,16.13,16.68,2.51.73,5.92,1.68,8.9,2.51,3.58,1,5.51,2.51,5.51,4.89,0,2.76-4,4.68-7.93,4.68-5.69,0-9.73-2.11-10.06-5.9a.57.57,0,0,0-.57-.5l-13.06.06a.57.57,0,0,0-.57.59c.6,11.93,12.12,18.36,22.86,18.36,16,0,23.23-9,23.23-17.43C189.27,265.93,188.36,256.91,174.91,253.47Z"
-                                                                                        style="fill: white;"></path>
-                                                                                    <path
-                                                                                        d="M343.31,232.12c-6.65,0-12.22,3.68-15.81,8.12v-7.6a.54.54,0,0,0-.53-.54H314.55a.54.54,0,0,0-.54.54v71a.54.54,0,0,0,.54.53h13.29a.53.53,0,0,0,.53-.53V280.3h.2c2.11,3.22,7.88,7.08,15.42,7.08,14.18,0,26-11.76,26-27.65C370,244.48,358.24,232.12,343.31,232.12Zm-1.23,41.73a14.09,14.09,0,1,1,13.74-14.12A13.9,13.9,0,0,1,342.08,273.85Z"
-                                                                                        style="fill: white;"></path>
-                                                                                    <path
-                                                                                        d="M274.68,229c-12.39,0-18.57,4.21-23.53,7.58l-.15.1a1.23,1.23,0,0,0-.37,1.63l4.9,8.44a1.24,1.24,0,0,0,.87.6,1.21,1.21,0,0,0,1-.27l.39-.32c2.55-2.14,6.64-5,16.54-5.78,5.51-.44,10.27,1,13.78,4.28,3.86,3.56,6.17,9.31,6.17,15.38,0,11.17-6.58,18.19-17.15,18.33-8.71-.05-14.56-4.59-14.56-11.3,0-3.56,1.61-5.88,4.75-8.2a1.22,1.22,0,0,0,.37-1.56l-4.4-8.32a1.29,1.29,0,0,0-.77-.62,1.24,1.24,0,0,0-1,.13c-4.94,2.93-11,8.29-10.67,18.59.4,13.11,11.3,23.12,25.47,23.53l.71,0H278c16.84-.55,29-13.05,29-30C307,245.66,295.66,229,274.68,229Z"
-                                                                                        style="fill: white;"></path>
-                                                                                    <path
-                                                                                        d="M342.08,245.68a14.09,14.09,0,1,0,13.74,14.05A13.84,13.84,0,0,0,342.08,245.68Z"
-                                                                                        style="fill: rgb(90, 49, 244);">
-                                                                                    </path>
-                                                                                    <rect x="383.23" y="214.02"
-                                                                                        width="141.73" height="90.42"
-                                                                                        rx="14.17" style="fill: white;">
-                                                                                    </rect>
-                                                                                    <path
-                                                                                        d="M439.07,246.62c0,9.67-6.77,16.57-16.23,16.57h-8.92a.75.75,0,0,0-.75.75v12.7a.75.75,0,0,1-.75.75h-6.28a.76.76,0,0,1-.75-.75V230.81a.75.75,0,0,1,.75-.75h16.7C432.3,230.06,439.07,237,439.07,246.62Zm-7.78,0c0-5.54-3.79-9.6-8.93-9.6h-8.44a.76.76,0,0,0-.75.75v17.71a.75.75,0,0,0,.75.74h8.44C427.5,256.22,431.29,252.17,431.29,246.62Z"
-                                                                                        style="fill: rgb(90, 49, 244);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M440.92,268.6a8.91,8.91,0,0,1,3.72-7.64c2.44-1.83,6.22-2.78,11.83-3l5.95-.2V256c0-3.51-2.36-5-6.15-5s-6.18,1.34-6.74,3.53a.72.72,0,0,1-.72.52h-5.87a.74.74,0,0,1-.75-.85c.88-5.2,5.18-9.15,14.35-9.15,9.74,0,13.25,4.53,13.25,13.18v18.38a.75.75,0,0,1-.75.76h-5.93a.75.75,0,0,1-.75-.76v-1.37a.56.56,0,0,0-1-.39c-1.77,1.93-4.65,3.33-9.24,3.33C445.39,278.2,440.92,274.68,440.92,268.6Zm21.5-4v-1.42l-7.7.4c-4.06.21-6.43,1.9-6.43,4.74,0,2.57,2.17,4,5.95,4C459.38,272.32,462.42,269.54,462.42,264.61Z"
-                                                                                        style="fill: rgb(90, 49, 244);">
-                                                                                    </path>
-                                                                                    <path
-                                                                                        d="M475.75,291.27v-5.35a.76.76,0,0,1,.9-.75,14.84,14.84,0,0,0,2.75.26,7.11,7.11,0,0,0,7.17-5.07l.39-1.23a.74.74,0,0,0,0-.51l-12.34-31.7a.76.76,0,0,1,.71-1h6a.77.77,0,0,1,.71.49l8.38,22.36a.77.77,0,0,0,1.44,0l7.27-22.3a.75.75,0,0,1,.72-.52H506a.76.76,0,0,1,.71,1l-13.2,35.21c-3,8.18-8.25,10.28-14,10.28a11.17,11.17,0,0,1-3.21-.39A.77.77,0,0,1,475.75,291.27Z"
-                                                                                        style="fill: rgb(90, 49, 244);">
-                                                                                    </path>
-                                                                                </symbol>
-                                                                            </defs>
-                                                                        </svg></div>
-                                                                </div><button type="button"
-                                                                    class="shopify-payment-button__button shopify-payment-button__button--unbranded _2ogcW-Q9I-rgsSkNbRiJzA _2EiMjnumZ6FVtlC7RViKtj _2-dUletcCZ2ZL1aaH0GXxT"
-                                                                    data-testid="Checkout-button">Buy it
-                                                                    now</button><button aria-disabled="true"
-                                                                    aria-hidden="true"
-                                                                    class="shopify-payment-button__more-options _2ogcW-Q9I-rgsSkNbRiJzA shopify-payment-button__button--hidden"
-                                                                    type="button" data-testid="sheet-open-button">More
-                                                                    payment options</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="add-to-wishlist">
-                                                    <div class="show">
-                                                        <div
-                                                            class="default-wishbutton-u165-bw1595xl-bw1595-deep-desires-lace-panty loading">
-                                                            <a class="add-in-wishlist-js btn"
-                                                                href="u165-bw1595xl-bw1595-deep-desires-lace-panty"><i
-                                                                    class="fa fa-heart-o"></i><span
-                                                                    class="tooltip-label">Add to wishlist</span></a>
-                                                        </div>
-                                                        <div class="loadding-wishbutton-u165-bw1595xl-bw1595-deep-desires-lace-panty loading btn"
-                                                            style="display: none; pointer-events: none"><a
-                                                                class="add_to_wishlist"
-                                                                href="u165-bw1595xl-bw1595-deep-desires-lace-panty"><i
-                                                                    class="fa fa-circle-o-notch fa-spin"></i></a></div>
-                                                        <div class="added-wishbutton-u165-bw1595xl-bw1595-deep-desires-lace-panty loading"
-                                                            style="display: none;"><a
-                                                                class="added-wishlist btn add_to_wishlist"
-                                                                href="/pages/wishlist"><i class="fa fa-heart"></i><span
-                                                                    class="tooltip-label">View Wishlist</span></a></div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <br><br>
-                                        <img
-                                            src="//cdn.shopify.com/s/files/1/0083/1478/1775/t/2/assets/trust_badge2.png?v=7924130765792302110"><br><br>
-
-
-                                        <div class="share_this_btn">
-                                            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                                                <a class="addthis_button_reddit addthis_button_preferred_1 at300b at300b"
-                                                    target="_blank" title="Preferred_1" href="#"><span
-                                                        class="at-icon-wrapper"
-                                                        style="background-color: rgb(255, 87, 0); line-height: 32px; height: 32px; width: 32px;"><svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                            viewBox="0 0 32 32" version="1.1" role="img"
-                                                            aria-labelledby="at-svg-reddit-1" title="Reddit"
-                                                            alt="Reddit" style="width: 32px; height: 32px;"
-                                                            class="at-icon at-icon-reddit">
-                                                            <title id="at-svg-reddit-1">Reddit</title>
-                                                            <g>
-                                                                <path
-                                                                    d="M27 15.5a2.452 2.452 0 0 1-1.338 2.21c.098.38.147.777.147 1.19 0 1.283-.437 2.47-1.308 3.563-.872 1.092-2.06 1.955-3.567 2.588-1.506.634-3.143.95-4.91.95-1.768 0-3.403-.316-4.905-.95-1.502-.632-2.69-1.495-3.56-2.587-.872-1.092-1.308-2.28-1.308-3.562 0-.388.045-.777.135-1.166a2.47 2.47 0 0 1-1.006-.912c-.253-.4-.38-.842-.38-1.322 0-.678.237-1.26.712-1.744a2.334 2.334 0 0 1 1.73-.726c.697 0 1.29.26 1.78.782 1.785-1.258 3.893-1.928 6.324-2.01l1.424-6.467a.42.42 0 0 1 .184-.26.4.4 0 0 1 .32-.063l4.53 1.006c.147-.306.368-.553.662-.74a1.78 1.78 0 0 1 .97-.278c.508 0 .94.18 1.302.54.36.36.54.796.54 1.31 0 .512-.18.95-.54 1.315-.36.364-.794.546-1.302.546-.507 0-.94-.18-1.295-.54a1.793 1.793 0 0 1-.533-1.308l-4.1-.92-1.277 5.86c2.455.074 4.58.736 6.37 1.985a2.315 2.315 0 0 1 1.757-.757c.68 0 1.256.242 1.73.726.476.484.713 1.066.713 1.744zm-16.868 2.47c0 .513.178.95.534 1.315.356.365.787.547 1.295.547.508 0 .942-.182 1.302-.547.36-.364.54-.802.54-1.315 0-.513-.18-.95-.54-1.31-.36-.36-.794-.54-1.3-.54-.5 0-.93.183-1.29.547a1.79 1.79 0 0 0-.54 1.303zm9.944 4.406c.09-.09.135-.2.135-.323a.444.444 0 0 0-.44-.447c-.124 0-.23.042-.32.124-.336.348-.83.605-1.486.77a7.99 7.99 0 0 1-1.964.248 7.99 7.99 0 0 1-1.964-.248c-.655-.165-1.15-.422-1.486-.77a.456.456 0 0 0-.32-.124.414.414 0 0 0-.306.124.41.41 0 0 0-.135.317.45.45 0 0 0 .134.33c.352.355.837.636 1.455.843.617.207 1.118.33 1.503.366a11.6 11.6 0 0 0 1.117.056c.36 0 .733-.02 1.117-.056.385-.037.886-.16 1.504-.366.62-.207 1.104-.488 1.456-.844zm-.037-2.544c.507 0 .938-.182 1.294-.547.356-.364.534-.802.534-1.315 0-.505-.18-.94-.54-1.303a1.75 1.75 0 0 0-1.29-.546c-.506 0-.94.18-1.3.54-.36.36-.54.797-.54 1.31s.18.95.54 1.315c.36.365.794.547 1.3.547z"
-                                                                    fill-rule="evenodd"></path>
-                                                            </g>
-                                                        </svg></span></a>
-                                                <a class="addthis_button_facebook addthis_button_preferred_2 at300b at300b"
-                                                    title="Preferred_2" href="#"><span class="at-icon-wrapper"
-                                                        style="background-color: rgb(59, 89, 152); line-height: 32px; height: 32px; width: 32px;"><svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                            viewBox="0 0 32 32" version="1.1" role="img"
-                                                            aria-labelledby="at-svg-facebook-2" title="Facebook"
-                                                            alt="Facebook" style="width: 32px; height: 32px;"
-                                                            class="at-icon at-icon-facebook">
-                                                            <title id="at-svg-facebook-2">Facebook</title>
-                                                            <g>
-                                                                <path
-                                                                    d="M22 5.16c-.406-.054-1.806-.16-3.43-.16-3.4 0-5.733 1.825-5.733 5.17v2.882H9v3.913h3.837V27h4.604V16.965h3.823l.587-3.913h-4.41v-2.5c0-1.123.347-1.903 2.198-1.903H22V5.16z"
-                                                                    fill-rule="evenodd"></path>
-                                                            </g>
-                                                        </svg></span></a>
-                                                <a class="addthis_button_twitter addthis_button_preferred_3 at300b at300b"
-                                                    title="Preferred_3" href="#"><span class="at-icon-wrapper"
-                                                        style="background-color: rgb(29, 161, 242); line-height: 32px; height: 32px; width: 32px;"><svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                            viewBox="0 0 32 32" version="1.1" role="img"
-                                                            aria-labelledby="at-svg-twitter-3" title="Twitter"
-                                                            alt="Twitter" style="width: 32px; height: 32px;"
-                                                            class="at-icon at-icon-twitter">
-                                                            <title id="at-svg-twitter-3">Twitter</title>
-                                                            <g>
-                                                                <path
-                                                                    d="M27.996 10.116c-.81.36-1.68.602-2.592.71a4.526 4.526 0 0 0 1.984-2.496 9.037 9.037 0 0 1-2.866 1.095 4.513 4.513 0 0 0-7.69 4.116 12.81 12.81 0 0 1-9.3-4.715 4.49 4.49 0 0 0-.612 2.27 4.51 4.51 0 0 0 2.008 3.755 4.495 4.495 0 0 1-2.044-.564v.057a4.515 4.515 0 0 0 3.62 4.425 4.52 4.52 0 0 1-2.04.077 4.517 4.517 0 0 0 4.217 3.134 9.055 9.055 0 0 1-5.604 1.93A9.18 9.18 0 0 1 6 23.85a12.773 12.773 0 0 0 6.918 2.027c8.3 0 12.84-6.876 12.84-12.84 0-.195-.005-.39-.014-.583a9.172 9.172 0 0 0 2.252-2.336"
-                                                                    fill-rule="evenodd"></path>
-                                                            </g>
-                                                        </svg></span></a>
-                                                <a class="addthis_button_print addthis_button_preferred_4 at300b at300b"
-                                                    title="Preferred_4" href="#" target="_blank"><span
-                                                        class="at-icon-wrapper"
-                                                        style="background-color: rgb(115, 138, 141); line-height: 32px; height: 32px; width: 32px;"><svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                            viewBox="0 0 32 32" version="1.1" role="img"
-                                                            aria-labelledby="at-svg-print-4" title="Print" alt="Print"
-                                                            style="width: 32px; height: 32px;"
-                                                            class="at-icon at-icon-print">
-                                                            <title id="at-svg-print-4">Print</title>
-                                                            <g>
-                                                                <path
-                                                                    d="M24.67 10.62h-2.86V7.49H10.82v3.12H7.95c-.5 0-.9.4-.9.9v7.66h3.77v1.31L15 24.66h6.81v-5.44h3.77v-7.7c-.01-.5-.41-.9-.91-.9zM11.88 8.56h8.86v2.06h-8.86V8.56zm10.98 9.18h-1.05v-2.1h-1.06v7.96H16.4c-1.58 0-.82-3.74-.82-3.74s-3.65.89-3.69-.78v-3.43h-1.06v2.06H9.77v-3.58h13.09v3.61zm.75-4.91c-.4 0-.72-.32-.72-.72s.32-.72.72-.72c.4 0 .72.32.72.72s-.32.72-.72.72zm-4.12 2.96h-6.1v1.06h6.1v-1.06zm-6.11 3.15h6.1v-1.06h-6.1v1.06z">
-                                                                </path>
-                                                            </g>
-                                                        </svg></span></a>
-                                                <a class="addthis_button_compact at300m" href="#"><span
-                                                        class="at-icon-wrapper"
-                                                        style="background-color: rgb(255, 101, 80); line-height: 32px; height: 32px; width: 32px;"><svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                            viewBox="0 0 32 32" version="1.1" role="img"
-                                                            aria-labelledby="at-svg-addthis-5" title="More" alt="More"
-                                                            style="width: 32px; height: 32px;"
-                                                            class="at-icon at-icon-addthis">
-                                                            <title id="at-svg-addthis-5">AddThis</title>
-                                                            <g>
-                                                                <path d="M18 14V8h-4v6H8v4h6v6h4v-6h6v-4h-6z"
-                                                                    fill-rule="evenodd"></path>
-                                                            </g>
-                                                        </svg></span></a>
-                                                <a class="addthis_counter addthis_bubble_style" href="#"
-                                                    style="display: inline-block;"><a class="addthis_button_expanded"
-                                                        target="_blank" title="More" href="#">0</a><a
-                                                        class="atc_s addthis_button_compact">Share<span></span></a></a>
-                                                <div class="atclear"></div>
-                                            </div>
-                                            <script type="text/javascript">
-                                            var addthis_product = 'sfy-2.0.2';
-                                            var addthis_plugin_info = {
-                                                "info_status": "enabled",
-                                                "cms_name": "Shopify",
-                                                "cms_version": null,
-                                                "plugin_name": "AddThis Sharing Tool",
-                                                "plugin_version": "2.0.2",
-                                                "plugin_mode": "AddThis"
-                                            };
-                                            var addthis_config = {
-                                                /*AddThisShopify_config_begins*/
-                                                pubid: 'xa-525fbbd6215b4f1a',
-                                                button_style: 'style3',
-                                                services_compact: '',
-                                                ui_delay: 0,
-                                                ui_click: false,
-                                                ui_language: '',
-                                                data_track_clickback: true,
-                                                data_ga_tracker: '',
-                                                custom_services: '',
-                                                custom_services_size: true /*AddThisShopify_config_ends*/
-                                            };
-                                            </script>
-                                            <script type="text/javascript"
-                                                src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-525fbbd6215b4f1a">
-                                            </script>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="grid__item wide--one-third post-large--one-third large--grid__item">
-                                        <div class="product_sidebar">
-                                            <div id="shopify-section-custom-text-type-1"
-                                                class="shopify-section index-section">
-                                                <div data-section-id="custom-text-type-1"
-                                                    data-section-type="custom-text-type-1" class="custom-text-type-1">
-
-                                                    <div class="grid-uniform">
-                                                        <ul class="support_block" style="background:#fff">
-
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="buddha-products-nav right">
-
-                                </div>
+                                </div> -->
+
+                                <script>
+                                var sliderArrows = {
+                                    left: "\u003csvg aria-hidden=\"true\" focusable=\"false\" role=\"presentation\" class=\"icon icon-arrow-left\" viewBox=\"0 0 32 32\"\u003e\u003cpath fill=\"#444\" d=\"M24.333 28.205l-1.797 1.684L7.666 16l14.87-13.889 1.797 1.675L11.269 16z\"\/\u003e\u003c\/svg\u003e",
+                                    right: "\u003csvg aria-hidden=\"true\" focusable=\"false\" role=\"presentation\" class=\"icon icon-arrow-right\" viewBox=\"0 0 32 32\"\u003e\u003cpath fill=\"#444\" d=\"M7.667 3.795l1.797-1.684L24.334 16 9.464 29.889l-1.797-1.675L20.731 16z\"\/\u003e\u003c\/svg\u003e",
+                                    up: "\u003csvg aria-hidden=\"true\" focusable=\"false\" role=\"presentation\" class=\"icon icon-arrow-up\" viewBox=\"0 0 32 32\"\u003e\u003cpath fill=\"#444\" d=\"M26.984 23.5l1.516-1.617L16 8.5 3.5 21.883 5.008 23.5 16 11.742z\"\/\u003e\u003c\/svg\u003e",
+                                    down: "\u003csvg aria-hidden=\"true\" focusable=\"false\" role=\"presentation\" class=\"icon icon-arrow-down\" viewBox=\"0 0 32 32\"\u003e\u003cpath fill=\"#444\" d=\"M26.984 8.5l1.516 1.617L16 23.5 3.5 10.117 5.008 8.5 16 20.258z\"\/\u003e\u003c\/svg\u003e"
+                                }
+                                </script>
 
                             </div>
-                            <div class="dt-sc-hr-invisible-large"></div>
-                            <div class="dt-sc-tabs-container detail-inner-desc">
-                                <ul class="dt-sc-tabs">
-                                    <li><a href="#" class="current"> Description </a></li>
-                                </ul>
+                        </div>
 
-                                <div class="dt-sc-tabs-content" id="desc_pro" style="display: block;">
-                                    <p></p>
-                                    <p>Black crotchless lace brief with hook front closure</p>
-                                    <p>Poly bag packaging Packaging dimensions (in): 13x10x1</p><br>Size: X
-                                    Large<br>Color: Black<p></p>
+                        <div class="grid__item medium-up--two-fifths" itemprop="offers" itemscope=""
+                            itemtype="http://schema.org/Offer">
+                            <div class="product-single__info-wrapper">
+                                <meta itemprop="priceCurrency" content="USD">
+                                <link itemprop="availability" href="http://schema.org/InStock">
+
+                                <div class="product-single__meta small--text-center">
+                                    <h1 itemprop="name" class="product-single__title"><?php echo $single['title']; ?></h1><a style="text-decoration: none!important;"
+                                        class="areviews_main_header_container" href="javascript:void(0);"> <span
+                                            class="main_starts_box areviews_header_rating"
+                                            style="display:inline-block;font-size:16px;margin:5px 0"> <i
+                                                style="color:#f3c621" class="far fa-star" aria-hidden="true"></i> <i
+                                                style="color:#f3c621" class="far fa-star" aria-hidden="true"></i> <i
+                                                style="color:#f3c621" class="far fa-star" aria-hidden="true"></i> <i
+                                                style="color:#f3c621" class="far fa-star" aria-hidden="true"></i> <i
+                                                style="color:#f3c621" class="far fa-star" aria-hidden="true"></i> <span
+                                                style="display: inline-block;color:#212020"
+                                                class="areviews_no_reviews_title">Write Review</span> </span> </a>
+
+                                    <ul class="product-single__meta-list list--no-bullets list--inline">
+                                        <li id="ProductSaleTag-product-template" class="hide">
+                                            <div class="product-tag">
+                                                Sale
+                                            </div>
+                                        </li>
+                                        <li>
+
+                                            <span id="ProductPrice-product-template" class="product-single__price"
+                                                itemprop="price" content="17.34">
+                                                <?php echo $single['price']; ?>
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <span class="visually-hidden">Regular price</span>
+                                            <s id="ComparePrice-product-template"
+                                                class="product-single__price product-single__price--compare">
+                                                <?php echo $single['sale_price']; ?>
+                                            </s>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <hr>
+
+
+                                <form method="post" action="/cart/add" id="AddToCartForm-product-template"
+                                    accept-charset="UTF-8" class="product-form" enctype="multipart/form-data"><input
+                                        type="hidden" name="form_type" value="product"><input type="hidden" name="utf8"
+                                        value="✓">
+
+
+                                    <div class="selector-wrapper js product-form__item">
+                                        <label for="SingleOptionSelector-product-template-0">Emitting Color</label>
+                                        <select
+                                            class="single-option-selector single-option-selector-product-template product-form__input"
+                                            id="SingleOptionSelector-0" data-name="Emitting Color" data-index="option1">
+
+                                            <option value="30cm-20LED" selected="selected">30cm-20LED</option>
+
+                                            <option value="21cm-14LED">21cm-14LED</option>
+
+                                            <option value="19cm-24LED">19cm-24LED</option>
+
+                                            <option value="50cm-36LED">50cm-36LED</option>
+
+                                            <option value="15cm-10LED">15cm-10LED</option>
+
+                                            <option value="19cm-10LED">19cm-10LED</option>
+
+                                            <option value="30cm-40LED">30cm-40LED</option>
+
+                                            <option value="40cm-60LED">40cm-60LED</option>
+
+                                            <option value="9cm-6LED">9cm-6LED</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="selector-wrapper js product-form__item">
+                                        <label for="SingleOptionSelector-product-template-1">Color</label>
+                                        <select
+                                            class="single-option-selector single-option-selector-product-template product-form__input"
+                                            id="SingleOptionSelector-1" data-name="Color" data-index="option2">
+
+                                            <option value="Warm White" selected="selected">Warm White</option>
+
+                                            <option value="White">White</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="selector-wrapper js product-form__item">
+                                        <label for="SingleOptionSelector-product-template-2">Ships From</label>
+                                        <select
+                                            class="single-option-selector single-option-selector-product-template product-form__input"
+                                            id="SingleOptionSelector-2" data-name="Ships From" data-index="option3">
+
+                                            <option value="China" selected="selected">China</option>
+
+                                            <option value="Russian Federation">Russian Federation</option>
+
+                                            <option value="Spain">Spain</option>
+
+                                        </select>
+                                    </div>
+
+
+
+                                    <select name="id" id="ProductSelect-product-template"
+                                        class="product-form__variants no-js">
+
+                                        <option selected="selected" data-sku="34739417-30cm-20led-warm-white-china"
+                                            value="36453156814920">
+
+                                            30cm-20LED / Warm White / China - $17.34 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-30cm-20led-white-china" value="36453156847688">
+
+                                            30cm-20LED / White / China - $17.34 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-30cm-20led-warm-white-russian-federation"
+                                            value="36453156880456" disabled="disabled">
+
+                                            30cm-20LED / Warm White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-30cm-20led-white-russian-federation"
+                                            value="36453156913224" disabled="disabled">
+
+                                            30cm-20LED / White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-30cm-20led-warm-white-spain" value="36453156945992"
+                                            disabled="disabled">
+
+                                            30cm-20LED / Warm White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-30cm-20led-white-spain" value="36453156978760"
+                                            disabled="disabled">
+
+                                            30cm-20LED / White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-21cm-14led-warm-white-china" value="36453157011528">
+
+                                            21cm-14LED / Warm White / China - $15.66 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-21cm-14led-white-china" value="36453157044296">
+
+                                            21cm-14LED / White / China - $15.66 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-19cm-24led-warm-white-spain" value="36453157077064"
+                                            disabled="disabled">
+
+                                            19cm-24LED / Warm White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-19cm-24led-white-spain" value="36453157109832"
+                                            disabled="disabled">
+
+                                            19cm-24LED / White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-50cm-36led-warm-white-china" value="36453157142600">
+
+                                            50cm-36LED / Warm White / China - $25.58 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-50cm-36led-white-china" value="36453157175368">
+
+                                            50cm-36LED / White / China - $25.58 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-50cm-36led-warm-white-russian-federation"
+                                            value="36453157208136" disabled="disabled">
+
+                                            50cm-36LED / Warm White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-50cm-36led-white-russian-federation"
+                                            value="36453157240904" disabled="disabled">
+
+                                            50cm-36LED / White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-50cm-36led-warm-white-spain" value="36453157273672"
+                                            disabled="disabled">
+
+                                            50cm-36LED / Warm White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-50cm-36led-white-spain" value="36453157306440"
+                                            disabled="disabled">
+
+                                            50cm-36LED / White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-15cm-10led-warm-white-spain" value="36453157339208"
+                                            disabled="disabled">
+
+                                            15cm-10LED / Warm White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-15cm-10led-white-spain" value="36453157371976"
+                                            disabled="disabled">
+
+                                            15cm-10LED / White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-19cm-10led-warm-white-china" value="36453157404744">
+
+                                            19cm-10LED / Warm White / China - $12.02 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-19cm-10led-white-china" value="36453157437512">
+
+                                            19cm-10LED / White / China - $12.02 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-19cm-10led-warm-white-russian-federation"
+                                            value="36453157470280" disabled="disabled">
+
+                                            19cm-10LED / Warm White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-19cm-10led-white-russian-federation"
+                                            value="36453157503048" disabled="disabled">
+
+                                            19cm-10LED / White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-19cm-10led-warm-white-spain" value="36453157535816"
+                                            disabled="disabled">
+
+                                            19cm-10LED / Warm White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-19cm-10led-white-spain" value="36453157568584"
+                                            disabled="disabled">
+
+                                            19cm-10LED / White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-21cm-14led-warm-white-russian-federation"
+                                            value="36453157601352" disabled="disabled">
+
+                                            21cm-14LED / Warm White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-21cm-14led-white-russian-federation"
+                                            value="36453157634120" disabled="disabled">
+
+                                            21cm-14LED / White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-21cm-14led-warm-white-spain" value="36453157666888"
+                                            disabled="disabled">
+
+                                            21cm-14LED / Warm White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-21cm-14led-white-spain" value="36453157699656"
+                                            disabled="disabled">
+
+                                            21cm-14LED / White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-15cm-10led-warm-white-china" value="36453157732424">
+
+                                            15cm-10LED / Warm White / China - $14.04 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-15cm-10led-white-china" value="36453157765192">
+
+                                            15cm-10LED / White / China - $14.04 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-15cm-10led-warm-white-russian-federation"
+                                            value="36453157797960" disabled="disabled">
+
+                                            15cm-10LED / Warm White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-15cm-10led-white-russian-federation"
+                                            value="36453157830728" disabled="disabled">
+
+                                            15cm-10LED / White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-30cm-40led-warm-white-russian-federation"
+                                            value="36453157863496" disabled="disabled">
+
+                                            30cm-40LED / Warm White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-30cm-40led-white-russian-federation"
+                                            value="36453157896264" disabled="disabled">
+
+                                            30cm-40LED / White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-30cm-40led-warm-white-spain" value="36453157929032"
+                                            disabled="disabled">
+
+                                            30cm-40LED / Warm White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-30cm-40led-white-spain" value="36453157961800"
+                                            disabled="disabled">
+
+                                            30cm-40LED / White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-19cm-24led-warm-white-china" value="36453157994568">
+
+                                            19cm-24LED / Warm White / China - $20.00 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-19cm-24led-white-china" value="36453158027336">
+
+                                            19cm-24LED / White / China - $20.00 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-19cm-24led-warm-white-russian-federation"
+                                            value="36453158060104" disabled="disabled">
+
+                                            19cm-24LED / Warm White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-19cm-24led-white-russian-federation"
+                                            value="36453158092872" disabled="disabled">
+
+                                            19cm-24LED / White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-40cm-60led-warm-white-china" value="36453158125640">
+
+                                            40cm-60LED / Warm White / China - $26.74 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-40cm-60led-white-china" value="36453158158408">
+
+                                            40cm-60LED / White / China - $26.74 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-40cm-60led-warm-white-russian-federation"
+                                            value="36453158191176" disabled="disabled">
+
+                                            40cm-60LED / Warm White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-40cm-60led-white-russian-federation"
+                                            value="36453158223944" disabled="disabled">
+
+                                            40cm-60LED / White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-40cm-60led-warm-white-spain" value="36453158256712"
+                                            disabled="disabled">
+
+                                            40cm-60LED / Warm White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-40cm-60led-white-spain" value="36453158289480"
+                                            disabled="disabled">
+
+                                            40cm-60LED / White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-30cm-40led-warm-white-china" value="36453158322248">
+
+                                            30cm-40LED / Warm White / China - $24.14 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-30cm-40led-white-china" value="36453158355016">
+
+                                            30cm-40LED / White / China - $24.14 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-9cm-6led-warm-white-china" value="36453158387784">
+
+                                            9cm-6LED / Warm White / China - $9.12 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-9cm-6led-white-china" value="36453158420552">
+
+                                            9cm-6LED / White / China - $9.12 USD
+
+                                        </option>
+
+                                        <option data-sku="34739417-9cm-6led-warm-white-russian-federation"
+                                            value="36453158453320" disabled="disabled">
+
+                                            9cm-6LED / Warm White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-9cm-6led-white-russian-federation"
+                                            value="36453158486088" disabled="disabled">
+
+                                            9cm-6LED / White / Russian Federation - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-9cm-6led-warm-white-spain" value="36453158518856"
+                                            disabled="disabled">
+
+                                            9cm-6LED / Warm White / Spain - Sold Out
+
+                                        </option>
+
+                                        <option data-sku="34739417-9cm-6led-white-spain" value="36453158551624"
+                                            disabled="disabled">
+
+                                            9cm-6LED / White / Spain - Sold Out
+
+                                        </option>
+
+                                    </select>
+                                    <div class="product-form__item product-form__item--quantity">
+                                        <label for="Quantity">Quantity</label>
+                                        <div class="js-qty">
+                                            <input type="text" value="1" id="Quantity" name="quantity" pattern="[0-9]*"
+                                                data-line="" class="js-qty__input" aria-live="polite">
+                                            <button type="button" class="js-qty__adjust js-qty__adjust--minus"
+                                                aria-label="Reduce item quantity by one">
+                                                <svg aria-hidden="true" focusable="false" role="presentation"
+                                                    class="icon icon--wide icon-minus" viewBox="0 0 22 3">
+                                                    <path fill="#000" d="M21.5.5v2H.5v-2z" fill-rule="evenodd"></path>
+                                                </svg>
+                                                <span class="icon__fallback-text">−</span>
+                                            </button>
+                                            <button type="button" class="js-qty__adjust js-qty__adjust--plus"
+                                                aria-label="Increase item quantity by one">
+                                                <svg aria-hidden="true" focusable="false" role="presentation"
+                                                    class="icon icon-plus" viewBox="0 0 22 21">
+                                                    <path d="M12 11.5h9.5v-2H12V0h-2v9.5H.5v2H10V21h2v-9.5z" fill="#000"
+                                                        fill-rule="evenodd"></path>
+                                                </svg>
+                                                <span class="icon__fallback-text">+</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="product-form__item product-form__item--submit">
+                                        <button type="submit" name="add" id="AddToCart-product-template"
+                                            class="btn btn--full product-form__cart-submit">
+                                            <span id="AddToCartText-product-template">
+
+                                                Add to Cart
+
+                                            </span>
+                                        </button>
+
+                                    </div>
+                                </form>
+
+                                <hr>
+
+                                <div class="rte product-single__description" itemprop="description">
+                                    <p><span><strong>Brand Name:</strong>
+                                            Plutus-Quinn</span><br><span><strong>Type:</strong> Night
+                                            Light</span><br><span><strong>Shape:</strong>
+                                            Strip</span><br><span><strong>Origin:</strong>
+                                            CN(Origin)</span><br><span><strong>Is Bulbs Included:</strong>
+                                            Yes</span><br><span><strong>Model Number:</strong>
+                                            Y190</span><br><span><strong>Item Type:</strong> Night
+                                            Lights</span><br><span><strong>Is Batteries Included:</strong>
+                                            Yes</span><br><span><strong>Body Material:</strong>
+                                            Aluminum</span><br><span><strong>Battery Type:</strong> LITHIUM
+                                            ION</span><br><span><strong>Light Source:</strong> LED
+                                            Bulbs</span><br><span><strong>Power Generation:</strong>
+                                            motion</span><br><span><strong>Voltage:</strong>
+                                            36V</span><br><span><strong>Power Source:</strong> Dry
+                                            Battery</span><br><span><strong>Is Batteries Required:</strong>
+                                            Yes</span><br><span><strong>Usage:</strong>
+                                            Emergency</span><br><span><strong>Wattage:</strong>
+                                            0-5W</span><br><span><strong>Certification:</strong>
+                                            CCC</span><br><span><strong>Certification:</strong>
+                                            ce</span><br><span><strong>Certification:</strong> CQC</span></p>
+                                </div>
+
+                                <hr>
+                                <!-- /snippets/social-sharing.liquid -->
+                                <div class="social-sharing grid medium-up--grid--table">
+
+                                    <div class="grid__item medium-up--one-third medium-up--text-left">
+                                        <span class="social-sharing__title">Share</span>
+                                    </div>
+
+                                    <div class="grid__item medium-up--two-thirds medium-up--text-right">
+
+                                        <a target="_blank"
+                                            href="//www.facebook.com/sharer.php?u=/products/single.php?product=<?php echo $product['id'] ?>"
+                                            class="social-sharing__link share-facebook" title="Share on Facebook">
+                                            <svg aria-hidden="true" focusable="false" role="presentation"
+                                                class="icon icon-facebook" viewBox="0 0 32 32">
+                                                <path fill="#444"
+                                                    d="M18.222 11.556V8.91c0-1.194.264-1.799 2.118-1.799h2.326V2.667h-3.882c-4.757 0-6.326 2.181-6.326 5.924v2.965H9.333V16h3.125v13.333h5.764V16h3.917l.528-4.444h-4.444z">
+                                                </path>
+                                            </svg>
+                                            <span class="share-title visually-hidden">Share on Facebook</span>
+                                        </a>
+
+
+
+                                        <a target="_blank"
+                                            href="//twitter.com/share?text=LED%20Night%20Light%20With%20Wireless%20USB%20Rechargeable%20Motion%20Sensor&amp;url=/products/single.php?product=<?php echo $product['id'] ?>"
+                                            class="social-sharing__link share-twitter" title="Tweet on Twitter">
+                                            <svg aria-hidden="true" focusable="false" role="presentation"
+                                                class="icon icon-twitter" viewBox="0 0 32 32">
+                                                <path fill="#444"
+                                                    d="M30.75 6.844c-1.087.481-2.25.806-3.475.956a6.079 6.079 0 0 0 2.663-3.35 12.02 12.02 0 0 1-3.844 1.469A6.044 6.044 0 0 0 21.675 4a6.052 6.052 0 0 0-6.05 6.056c0 .475.05.938.156 1.381A17.147 17.147 0 0 1 3.306 5.106a6.068 6.068 0 0 0 1.881 8.088c-1-.025-1.938-.3-2.75-.756v.075a6.056 6.056 0 0 0 4.856 5.937 6.113 6.113 0 0 1-1.594.212c-.388 0-.769-.038-1.138-.113a6.06 6.06 0 0 0 5.656 4.206 12.132 12.132 0 0 1-8.963 2.507A16.91 16.91 0 0 0 10.516 28c11.144 0 17.231-9.231 17.231-17.238 0-.262-.006-.525-.019-.781a12.325 12.325 0 0 0 3.019-3.138z">
+                                                </path>
+                                            </svg>
+                                            <span class="share-title visually-hidden">Tweet on Twitter</span>
+                                        </a>
+
+
+
+                                        <a target="_blank"
+                                            href="//pinterest.com/pin/create/button/?url=/products/single.php?product=<?php echo $product['id'] ?>&amp;media=//cdn.shopify.com/s/files/1/0004/2395/2390/products/product-image-1519428538_1024x1024.jpg?v=1602321412&amp;description=LED%20Night%20Light%20With%20Wireless%20USB%20Rechargeable%20Motion%20Sensor"
+                                            class="social-sharing__link share-pinterest" title="Pin on Pinterest">
+                                            <svg aria-hidden="true" focusable="false" role="presentation"
+                                                class="icon icon-pinterest" viewBox="0 0 32 32">
+                                                <path fill="#444"
+                                                    d="M16 2C8.269 2 2 8.269 2 16c0 5.731 3.45 10.656 8.381 12.825-.037-.975-.006-2.15.244-3.212l1.8-7.631s-.45-.894-.45-2.213c0-2.075 1.2-3.625 2.7-3.625 1.275 0 1.887.956 1.887 2.1 0 1.281-.819 3.194-1.238 4.969-.35 1.488.744 2.694 2.212 2.694 2.65 0 4.438-3.406 4.438-7.444 0-3.069-2.069-5.362-5.825-5.362-4.244 0-6.894 3.169-6.894 6.706 0 1.219.363 2.081.925 2.744.256.306.294.431.2.781-.069.256-.219.875-.287 1.125-.094.356-.381.481-.7.35-1.956-.8-2.869-2.938-2.869-5.35 0-3.975 3.356-8.744 10.006-8.744 5.344 0 8.863 3.869 8.863 8.019 0 5.494-3.056 9.594-7.556 9.594-1.512 0-2.931-.819-3.419-1.744 0 0-.813 3.225-.988 3.85-.294 1.081-.875 2.156-1.406 3 1.256.369 2.588.575 3.969.575 7.731 0 14-6.269 14-14 .006-7.738-6.262-14.006-13.994-14.006z">
+                                                </path>
+                                            </svg>
+                                            <span class="share-title visually-hidden">Pin on Pinterest</span>
+                                        </a>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <script
-                        src="//cdn.shopify.com/shopifycloud/shopify/assets/themes_support/option_selection-fe6b72c2bbdd3369ac0bfefe8648e3c889efca213baefd4cfb0dd9363563831f.js"
-                        type="text/javascript"></script>
-
-                    <script>
-                    var selectCallback = function(variant, selector) {
-                        timber.productPage({
-                            money_format: "${{amount}}",
-                            variant: variant,
-                            selector: selector,
-                            translations: {
-                                add_to_cart: "Add to Cart",
-                                sold_out: "Sold Out",
-                                unavailable: "Unavailable"
-                            }
-                        });
-                    };
-
-                    jQuery(function($) {
-                        new Shopify.OptionSelectors('productSelect', {
-                            product: {
-                                "id": 4598612099151,
-                                "title": "<?php echo $single['title']; ?>",
-                                "handle": "u165-bw1595xl-bw1595-deep-desires-lace-panty",
-                                "description": "\u003cp\u003eBlack crotchless lace brief with hook front closure\u003c\/p\u003e\u003cp\u003ePoly bag packaging Packaging dimensions (in): 13x10x1\u003c\/p\u003e\u003cbr\u003eSize: X Large\u003cbr\u003eColor: Black",
-                                "published_at": "2020-05-04T14:45:58-04:00",
-                                "created_at": "2020-05-04T14:45:59-04:00",
-                                "vendor": "Be Wicked",
-                                "type": "Panty",
-                                "tags": ["panty"],
-                                "price": 2030,
-                                "price_min": 2030,
-                                "price_max": 2030,
-                                "available": true,
-                                "price_varies": false,
-                                "compare_at_price": 0,
-                                "compare_at_price_min": 0,
-                                "compare_at_price_max": 0,
-                                "compare_at_price_varies": false,
-                                "variants": [{
-                                    "id": 32133767856207,
-                                    "title": "Default Title",
-                                    "option1": "Default Title",
-                                    "option2": null,
-                                    "option3": null,
-                                    "sku": "U165-BW1595 XL",
-                                    "requires_shipping": true,
-                                    "taxable": true,
-                                    "featured_image": null,
-                                    "available": true,
-                                    "name": "<?php echo $single['title']; ?>",
-                                    "public_title": null,
-                                    "options": ["Default Title"],
-                                    "price": 2030,
-                                    "weight": 454,
-                                    "compare_at_price": 0,
-                                    "inventory_management": null,
-                                    "barcode": "659543152174"
-                                }],
-                                "images": [
-                                    "\/\/cdn.shopify.com\/s\/files\/1\/0083\/1478\/1775\/products\/BW1595-XL.jpg?v=1588617959",
-                                    "\/\/cdn.shopify.com\/s\/files\/1\/0083\/1478\/1775\/products\/BW1595-XL_28145654.jpg?v=1588617959"
-                                ],
-                                "featured_image": "\/\/cdn.shopify.com\/s\/files\/1\/0083\/1478\/1775\/products\/BW1595-XL.jpg?v=1588617959",
-                                "options": ["Title"],
-                                "media": [{
-                                    "alt": null,
-                                    "id": 6945442103375,
-                                    "position": 1,
-                                    "preview_image": {
-                                        "aspect_ratio": 1.0,
-                                        "height": 500,
-                                        "width": 500,
-                                        "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/0083\/1478\/1775\/products\/BW1595-XL.jpg?v=1588617959"
-                                    },
-                                    "aspect_ratio": 1.0,
-                                    "height": 500,
-                                    "media_type": "image",
-                                    "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/0083\/1478\/1775\/products\/BW1595-XL.jpg?v=1588617959",
-                                    "width": 500
-                                }, {
-                                    "alt": null,
-                                    "id": 6945442136143,
-                                    "position": 2,
-                                    "preview_image": {
-                                        "aspect_ratio": 1.0,
-                                        "height": 500,
-                                        "width": 500,
-                                        "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/0083\/1478\/1775\/products\/BW1595-XL_28145654.jpg?v=1588617959"
-                                    },
-                                    "aspect_ratio": 1.0,
-                                    "height": 500,
-                                    "media_type": "image",
-                                    "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/0083\/1478\/1775\/products\/BW1595-XL_28145654.jpg?v=1588617959",
-                                    "width": 500
-                                }],
-                                "content": "\u003cp\u003eBlack crotchless lace brief with hook front closure\u003c\/p\u003e\u003cp\u003ePoly bag packaging Packaging dimensions (in): 13x10x1\u003c\/p\u003e\u003cbr\u003eSize: X Large\u003cbr\u003eColor: Black"
-                            },
-                            onVariantSelected: selectCallback,
-                            enableHistoryState: true
-                        });
-
-
-
-
-
-
-                        // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
-
-                        // Hide selectors if we only have 1 variant and its title contains 'Default'.
-
-                        $('.selector-wrapper').hide();
-                        $('.selector-wrapper-secton').hide();
-
-                        $('.product-single .single-option-selector').wrap('<div class="selector-arrow">');
-                    });
-                    </script>
-
-                    
                 </div>
-
             </div>
 
 
-            <div class="dt-sc-hr-invisible-large"></div>
+            <div class="full-width full-width--return-link">
+                <a href="/" class="h1 return-link">
+                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-arrow-thin-left"
+                        viewBox="0 0 32 32">
+                        <path fill="#444"
+                            d="M10.253 24.134c.269-.269.26-.694 0-.981l-5.764-6.458h24.705c.382 0 .694-.313.694-.694s-.313-.694-.694-.694H4.489l5.755-6.458c.252-.295.278-.703.009-.972s-.738-.286-.99-.009c0 0-6.875 7.552-6.944 7.639s-.208.243-.208.495.139.425.208.495 6.944 7.639 6.944 7.639a.716.716 0 0 0 .99 0z">
+                        </path>
+                    </svg>
+                    Back to Home
+                </a>
+            </div>
 
+
+            <script>
+            // Override default values of shop.strings for each template.
+            // Alternate product templates can change values of
+            // add to cart button, sold out, and unavailable states here.
+            window.productStrings = {
+                addToCart: "Add to Cart",
+                soldOut: "Sold Out",
+                unavailable: "Unavailable"
+            }
+            </script>
         </main>
-
-        <?php endif; ?>
 
         <?php include_once('../includes/footer.php'); ?>
     </div>
+    <?php endif; ?>
 </body>
 </html>
